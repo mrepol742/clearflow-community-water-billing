@@ -54,3 +54,13 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## License
+
+This project contains code derived from Expo and other third-party components that are licensed under the MIT License and their respective licenses.
+
+Unless otherwise noted, the application code, business logic, assets, and original works developed for this project are licensed under the Polyform Noncommercial License 1.0.0.
+
+See the [Polyform Noncommercial License 1.0.0](LICENSE) file for details.
+
+Copyright © 2026 Melvin Jones Repol.
