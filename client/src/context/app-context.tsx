@@ -16,7 +16,7 @@ export type Resident = {
   block: string;
   lot: string;
   street: string;
-  recentBillingId: string;
+  recentBillingAmount: string;
   status: ApprovalStatus;
   role: Role;
   joinedAt: string;
@@ -94,7 +94,7 @@ const residentsSeed: Resident[] = [
     block: 'HOA',
     lot: 'Office',
     street: 'Community Hall',
-    recentBillingId: 'ADMIN',
+    recentBillingAmount: 'ADMIN',
     status: 'approved',
     role: 'admin',
     joinedAt: '2024-01-10',
@@ -110,7 +110,7 @@ const residentsSeed: Resident[] = [
     block: '8',
     lot: '14',
     street: 'Acacia Street',
-    recentBillingId: 'WB-2026-00418',
+    recentBillingAmount: 'WB-2026-00418',
     status: 'approved',
     role: 'resident',
     joinedAt: '2024-08-18',
@@ -126,7 +126,7 @@ const residentsSeed: Resident[] = [
     block: '3',
     lot: '22',
     street: 'Narra Street',
-    recentBillingId: 'WB-2026-00398',
+    recentBillingAmount: 'WB-2026-00398',
     status: 'pending',
     role: 'resident',
     joinedAt: '2026-06-12',
@@ -142,7 +142,7 @@ const residentsSeed: Resident[] = [
     block: '5',
     lot: '9',
     street: 'Molave Street',
-    recentBillingId: 'WB-2026-00405',
+    recentBillingAmount: 'WB-2026-00405',
     status: 'pending',
     role: 'resident',
     joinedAt: '2026-06-11',

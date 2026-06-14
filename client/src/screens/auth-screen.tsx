@@ -39,7 +39,7 @@ const emptySignup: SignupInput = {
   block: "",
   lot: "",
   street: "",
-  recentBillingId: "",
+  recentBillingAmount: "",
 };
 
 export function AuthScreen() {
@@ -77,7 +77,7 @@ export function AuthScreen() {
       signup.block,
       signup.lot,
       signup.street,
-      signup.recentBillingId,
+      signup.recentBillingAmount,
     ];
     if (required.some((value) => !value.trim())) {
       setMessage({
@@ -274,7 +274,7 @@ export function AuthScreen() {
                       placeholder="Santos"
                     />
                     <Field
-                      label="Last name *"
+                      label="Family name *"
                       value={signup.lastName}
                       onChangeText={(value) => updateSignup("lastName", value)}
                       placeholder="Dela Cruz"
@@ -323,14 +323,14 @@ export function AuthScreen() {
                     />
                   </View>
                   <Field
-                    label="Most recent water billing ID *"
+                    label="Most recent water amount *"
                     icon={icons.receipt}
-                    value={signup.recentBillingId}
+                    value={signup.recentBillingAmount}
                     onChangeText={(value) =>
-                      updateSignup("recentBillingId", value)
+                      updateSignup("recentBillingAmount", value)
                     }
                     autoCapitalize="characters"
-                    placeholder="WB-2026-00000"
+                    placeholder="Enter water amount"
                   />
                   <Field
                     label="Create password *"
