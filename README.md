@@ -1,56 +1,308 @@
 # Clear Flow Community Water Billing
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<img src="swappy-20260615-034324.png" alt="Clear Flow Community Water Billing" />
 
-## Get started
+A modern community water billing and management system built with **Expo (React Native)** and **Laravel**.
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## Features
 
-2. Start the app
+- Customer account management
+- Water meter reading management
+- Automated bill generation
+- Payment tracking
+- Consumption history
+- Notifications and reminders
+- Administrative dashboard and reporting
+- Mobile-first user experience
 
-   ```bash
-   npm run dev
-   ```
+## Technology Stack
 
-In the output, you'll find options to open the app in a
+### Mobile Application (`client/`)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Expo
+- React Native
+- TypeScript
+- Expo Router
+- Axios
+- React Query (if applicable)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Backend API (`server/`)
 
-### Other setup steps
+- Laravel
+- MySQL / MariaDB
+- Laravel Sanctum Authentication
+- Eloquent ORM
+- RESTful API Architecture
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+---
 
-## Learn more
+# Prerequisites
 
-To learn more about developing your project with Expo, look at the following resources:
+Before starting, ensure you have the following installed:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## General
 
-## Join the community
+- Node.js 20+
+- npm or yarn
+- composer
 
-Join our community of developers creating universal apps.
+## Mobile Development
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Expo CLI
+- Android Studio (Android development)
+- Xcode (macOS only for iOS development)
 
-## License
+## Backend Development
 
-This project contains code derived from Expo and other third-party components that are licensed under the MIT License and their respective licenses.
+- PHP 8.2+
+- Composer 2+
+- MySQL 8+ or MariaDB
+- Laravel CLI (optional)
+
+---
+
+# Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/clear-flow-community-water-billing.git
+
+cd clear-flow-community-water-billing
+```
+
+---
+
+# Backend Setup (Laravel)
+
+Navigate to the server directory:
+
+```bash
+cd server
+```
+
+## Install Dependencies
+
+```bash
+composer install
+```
+
+## Create Environment File
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+## Configure Environment Variables
+
+Edit `.env`:
+
+```env
+APP_NAME="Clearflow"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=clearflow
+DB_USERNAME=root
+DB_PASSWORD=
+
+...
+```
+
+## Run Database Migrations
+
+```bash
+php artisan migrate
+```
+
+If the project contains seeders:
+
+```bash
+php artisan db:seed
+```
+
+Or:
+
+```bash
+php artisan migrate --seed
+```
+
+## Start Laravel Development Server
+
+```bash
+php artisan serve
+```
+
+The API will be available at:
+
+```text
+http://localhost:8000
+```
+
+---
+
+# Frontend Setup (Expo)
+
+Open a new terminal:
+
+```bash
+cd client
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+## Create Environment File
+
+Create:
+
+```bash
+.env
+```
+
+Example:
+
+```env
+EXPO_PUBLIC_API_URL=http://localhost:8000/api
+```
+
+### Android Emulator
+
+```env
+EXPO_PUBLIC_API_URL=http://10.0.2.2:8000/api
+```
+
+### Physical Device
+
+Replace with your computer's local IP address:
+
+```env
+EXPO_PUBLIC_API_URL=http://192.168.1.100:8000/api
+```
+
+---
+
+## Start Expo Development Server
+
+```bash
+npm run dev
+```
+
+or
+
+```bash
+npx expo start
+```
+
+You can run the application using:
+
+- Expo Go
+- Android Emulator
+- iOS Simulator
+- Development Build
+
+---
+
+# API Authentication
+
+The backend uses Laravel Sanctum for API authentication.
+
+Ensure Sanctum is properly configured before using protected routes.
+
+Example authenticated request:
+
+```http
+Authorization: Bearer {token}
+```
+
+---
+
+# Development Workflow
+
+### Start Backend
+
+```bash
+cd server
+
+php artisan serve
+```
+
+### Start Frontend
+
+```bash
+cd client
+
+npm run dev
+```
+
+Both services must be running during development.
+
+---
+
+# Building the Mobile App
+
+## Android
+
+```bash
+cd client
+
+eas build --platform android
+```
+
+## iOS
+
+```bash
+cd client
+
+eas build --platform ios
+```
+
+For EAS builds, ensure you are logged in:
+
+```bash
+npx eas login
+```
+
+---
+
+# Code Quality
+
+## Laravel
+
+```bash
+php artisan test
+```
+
+## Expo
+
+```bash
+npx expo lint
+```
+
+---
+
+# License
+
+This project contains code derived from Expo and other third-party components licensed under the [MIT License](LICENSE-MIT) and their respective licenses.
 
 Unless otherwise noted, the application code, business logic, assets, and original works developed for this project are licensed under the Polyform Noncommercial License 1.0.0.
 
-See the [Polyform Noncommercial License 1.0.0](LICENSE) file for details.
+See the [LICENSE](LICENSE.md) file for details.
 
 Copyright © 2026 Melvin Jones Repol.
